@@ -1,7 +1,6 @@
-@extends('layouts.admin')
-@section('title','Panel | PROCAFES')
+<?php $__env->startSection('title','Panel | PROCAFES'); ?>
 
-@push('styles')
+<?php $__env->startPush('styles'); ?>
 <style>
   :root{
     --pcf-primary:#f2dd6c;
@@ -108,9 +107,9 @@
     color:#6c757d;
   }
 </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
-@section('admin-content')
+<?php $__env->startSection('admin-content'); ?>
 
 <div class="d-flex align-items-center justify-content-between mb-3">
 
@@ -123,7 +122,7 @@
         <a
             class="btn btn-sm btn-outline-secondary"
 
-            href="{{ route('home') }}"
+            href="<?php echo e(route('home')); ?>"
 
             target="_blank">
 
@@ -135,7 +134,7 @@
 
         <a
 
-            href="{{ route('admin.products.create') }}"
+            href="<?php echo e(route('admin.products.create')); ?>"
 
             class="btn btn-sm btn-procafes">
 
@@ -145,7 +144,7 @@
 
         </a>
 
-        {{-- REPORTES --}}
+        
         <div class="dropdown">
 
             <button
@@ -162,14 +161,14 @@
 
             <ul class="dropdown-menu dropdown-menu-end">
 
-                {{-- INGRESOS --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.revenue') }}">
+                        href="<?php echo e(route('admin.reports.revenue')); ?>">
 
                         <i class="bi bi-graph-up me-2"></i>
 
@@ -179,14 +178,14 @@
 
                 </li>
 
-                {{-- TOP PRODUCTOS --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.best') }}">
+                        href="<?php echo e(route('admin.reports.best')); ?>">
 
                         <i class="bi bi-trophy me-2"></i>
 
@@ -196,14 +195,14 @@
 
                 </li>
 
-                {{-- INVENTARIO --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.products') }}">
+                        href="<?php echo e(route('admin.reports.products')); ?>">
 
                         <i class="bi bi-box-seam me-2"></i>
 
@@ -213,14 +212,14 @@
 
                 </li>
 
-                {{-- ORDENES --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.orders') }}">
+                        href="<?php echo e(route('admin.reports.orders')); ?>">
 
                         <i class="bi bi-receipt me-2"></i>
 
@@ -234,14 +233,14 @@
                     <hr class="dropdown-divider">
                 </li>
 
-                {{-- REPORTE 1 --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.ventas') }}">
+                        href="<?php echo e(route('admin.reports.ventas')); ?>">
 
                         <i class="bi bi-bar-chart-line me-2"></i>
 
@@ -251,14 +250,14 @@
 
                 </li>
 
-                {{-- REPORTE 2 --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.inventario') }}">
+                        href="<?php echo e(route('admin.reports.inventario')); ?>">
 
                         <i class="bi bi-exclamation-triangle me-2"></i>
 
@@ -268,14 +267,14 @@
 
                 </li>
 
-                {{-- REPORTE 3 --}}
+                
                 <li>
 
                     <a
 
                         class="dropdown-item"
 
-                        href="{{ route('admin.reports.tendencias') }}">
+                        href="<?php echo e(route('admin.reports.tendencias')); ?>">
 
                         <i class="bi bi-graph-up-arrow me-2"></i>
 
@@ -293,7 +292,7 @@
 
 </div>
 
-{{-- TARJETAS --}}
+
 <div class="row g-3 mb-3">
 
     <div class="col-12 col-md-6 col-xl-3">
@@ -319,10 +318,11 @@
                     <div class="fs-4 fw-bold">
 
                         S/
-                        {{ number_format(
+                        <?php echo e(number_format(
                             $stats['revenue'] ?? 0,
                             2
-                        ) }}
+                        )); ?>
+
 
                     </div>
 
@@ -356,9 +356,10 @@
 
                     <div class="fs-4 fw-bold">
 
-                        {{ number_format(
+                        <?php echo e(number_format(
                             $stats['orders'] ?? 0
-                        ) }}
+                        )); ?>
+
 
                     </div>
 
@@ -372,4 +373,5 @@
 
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\6 TO CICLO\procafes\resources\views/dashboard.blade.php ENDPATH**/ ?>
